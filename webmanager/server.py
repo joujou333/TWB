@@ -249,7 +249,9 @@ def config_set():
     return jsonify(sync())
 
 
-if len(sys.argv) > 1:
-    app.run(host="localhost", port=sys.argv[1])
+if len(sys.argv) > 2:
+    app.run(host=sys.argv[2], port=int(sys.argv[1]))
+elif len(sys.argv) > 1:
+    app.run(host="localhost", port=int(sys.argv[1]))
 else:
     app.run()
